@@ -11,5 +11,8 @@
 - name: Import cloud-init playbook
   ansible.builtin.import_playbook: cloud_init.yml
 
+- name: Import Terraform playbook
+  ansible.builtin.import_playbook: terraform.yml
+
 - name: Import AWS playbook
   ansible.builtin.import_playbook: aws.yml
