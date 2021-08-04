@@ -2,5 +2,8 @@
 - name: Import base image playbook
   ansible.builtin.import_playbook: base.yml
 
+- name: Import VNC playbook
+  ansible.builtin.import_playbook: vnc.yml
+
 - name: Import AWS playbook
   ansible.builtin.import_playbook: aws.yml
