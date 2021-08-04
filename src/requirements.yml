@@ -29,3 +29,5 @@
   name: remove_python2
 - src: https://github.com/cisagov/ansible-role-upgrade
   name: upgrade
+- src: https://github.com/cisagov/ansible-role-xfce-cool
+  name: xfce_cool
