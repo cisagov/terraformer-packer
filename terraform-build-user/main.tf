@@ -9,6 +9,13 @@ module "iam_user" {
     aws.images-staging-ssm    = aws.images-staging-ssm
   }
 
-  ssm_parameters = ["/cyhy/dev/users", "/ssh/public_keys/*"]
-  user_name      = "build-terraformer-packer"
+  ssm_parameters = [
+    "/cyhy/dev/users",
+    "/ssh/public_keys/*",
+    "/vnc/username",
+    "/vnc/password",
+    "/vnc/ssh/rsa_public_key",
+    "/vnc/ssh/rsa_private_key",
+  ]
+  user_name = "build-terraformer-packer"
 }
