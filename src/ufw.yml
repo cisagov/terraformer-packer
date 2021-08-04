@@ -1,0 +1,31 @@
+---
+- hosts: all
+  name: Install ufw
+  become: yes
+  become_method: sudo
+  roles:
+    - ufw
+  vars:
+    # Do not actually enforce firewall rules.  The assessors will turn
+    # UFW on if they want it.
+    state: disabled
+
+- hosts: all
+  name: Basic configuration for UFW
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Allow incoming traffic through default TCP ports
+      community.general.ufw:
+        proto: tcp
+        rule: allow
+        to_port: "{{ item }}"
+      loop:
+        - "22"       # ssh for Guacamole server (internal to assessment env)
+        - "5901"     # vnc for Guacamole (internal to assessment env)
+    - name: Allow incoming traffic through default UDP ports
+      community.general.ufw:
+        proto: udp
+        rule: allow
+        to_port: "{{ item }}"
+      loop: []
