@@ -4,4 +4,8 @@
   become: yes
   become_method: sudo
   roles:
-    - terraform
+    - role: terraform
+      vars:
+        # According to the RTA folks they are on 0.14.  This is the
+        # most recent 0.14 version.
+        terraform_version: 0.14.11
