@@ -3,7 +3,6 @@
   name: amazon_ssm_agent
 - src: https://github.com/cisagov/ansible-role-assessment-tool
   name: assessment_tool
-  version: improvement/allow-specification-of-venv-owner
 - src: https://github.com/cisagov/ansible-role-backports
   name: backports
 - src: https://github.com/cisagov/ansible-role-banner
