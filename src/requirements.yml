@@ -32,7 +32,6 @@
   name: remove_python2
 - src: https://github.com/cisagov/ansible-role-terraform
   name: terraform
-  version: first-commits
 - src: https://github.com/cisagov/ansible-role-ufw
   name: ufw
 - src: https://github.com/cisagov/ansible-role-upgrade
