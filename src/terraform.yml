@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  name: Install Terraform and terraform-docs
+  name: Install Terraform, terraform-docs, and Ansible
   become: yes
   become_method: sudo
   roles:
@@ -9,3 +9,10 @@
         # According to the RTA folks they are on 0.14.  This is the
         # most recent 0.14 version.
         terraform_version: 0.14.11
+    - role: assessment_tool
+      vars:
+        group: vnc
+        install_dir: /home/vnc/
+        owner: vnc
+        pip_packages:
+          - ansible
