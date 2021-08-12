@@ -16,6 +16,7 @@
         owner: "{{ vnc_user }}"
         pip_packages:
           - ansible
+          - boto3
   vars:
     # The username for the VNC user
     vnc_user: "{{ lookup('aws_ssm', '/vnc/username') }}"
