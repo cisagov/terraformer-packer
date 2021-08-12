@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  name: Install Terraform, terraform-docs, and Ansible
+  name: Install Terraform, Ansible, and related tools
   become: yes
   become_method: sudo
   roles:
@@ -17,6 +17,11 @@
         pip_packages:
           - ansible
           - boto3
+  tasks:
+    - name: Install the AWS CLI tool
+      ansible.builtin.package:
+        name:
+          - awscli
   vars:
     # The username for the VNC user
     vnc_user: "{{ lookup('aws_ssm', '/vnc/username') }}"
