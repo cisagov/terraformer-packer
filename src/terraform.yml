@@ -11,8 +11,11 @@
         terraform_version: 0.14.11
     - role: assessment_tool
       vars:
-        group: vnc
-        install_dir: /home/vnc/
-        owner: vnc
+        group: "{{ vnc_user }}"
+        install_dir: /home/{{ vnc_user }}/
+        owner: "{{ vnc_user }}"
         pip_packages:
           - ansible
+  vars:
+    # The username for the VNC user
+    vnc_user: "{{ lookup('aws_ssm', '/vnc/username') }}"
