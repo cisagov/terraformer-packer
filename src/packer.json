@@ -46,7 +46,7 @@
         }
       },
       "tags": {
-        "Application": "COOL",
+        "Application": "Terraformer",
         "Base_AMI_Name": "{{ .SourceAMIName }}",
         "GitHub_Release_URL": "{{user `github_release_url`}}",
         "OS_Version": "Debian Buster",
