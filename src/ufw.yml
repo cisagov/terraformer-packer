@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  name: Install ufw
+  name: Install UFW
   become: yes
   become_method: sudo
   roles:
