@@ -1,0 +1,18 @@
+---
+# Ensure that all cloud-init services are enabled.  We need
+# cloud-config enabled, and we may as well enable the others while
+# we're at it.
+- hosts: all
+  name: Enable all cloud-init services
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Enable all cloud-init services
+      ansible.builtin.service:
+        name: "{{ item }}"
+        enabled: yes
+      loop:
+        - cloud-init-local
+        - cloud-init
+        - cloud-config
+        - cloud-final

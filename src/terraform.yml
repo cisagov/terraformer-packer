@@ -1,0 +1,27 @@
+---
+- hosts: all
+  name: Install Terraform, Ansible, and related tools
+  become: yes
+  become_method: sudo
+  roles:
+    - role: terraform
+      vars:
+        # According to the RTA folks they are on 0.14.  This is the
+        # most recent 0.14 version.
+        terraform_version: 0.14.11
+    - role: assessment_tool
+      vars:
+        group: "{{ vnc_user }}"
+        install_dir: /home/{{ vnc_user }}/
+        owner: "{{ vnc_user }}"
+        pip_packages:
+          - ansible
+          - boto3
+  tasks:
+    - name: Install the AWS CLI tool
+      ansible.builtin.package:
+        name:
+          - awscli
+  vars:
+    # The username for the VNC user
+    vnc_user: "{{ lookup('aws_ssm', '/vnc/username') }}"
