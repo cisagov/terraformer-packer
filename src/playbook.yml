@@ -1,10 +1,15 @@
 ---
+- name: Import AWS playbook
+  ansible.builtin.import_playbook: aws.yml
+
 - name: Import base image playbook
   ansible.builtin.import_playbook: base.yml
 
 - name: Import UFW playbook
   ansible.builtin.import_playbook: ufw.yml
 
+# The AWS playbook must run before this one, since this playbook uses
+# a user group created in the AWS playbook.
 - name: Import VNC playbook
   ansible.builtin.import_playbook: vnc.yml
 
@@ -13,6 +18,3 @@
 
 - name: Import Terraform playbook
   ansible.builtin.import_playbook: terraform.yml
-
-- name: Import AWS playbook
-  ansible.builtin.import_playbook: aws.yml
