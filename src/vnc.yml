@@ -94,5 +94,5 @@
             owner: "{{ username }}"
             path: /home/{{ username }}/.bashrc
   vars:
-    # The username, password, and ssh keys for the VNC user
+    # The username for the VNC user
     username: "{{ lookup('aws_ssm', '/vnc/username') }}"
