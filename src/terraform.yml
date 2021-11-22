@@ -18,10 +18,11 @@
           - ansible
           - boto3
   tasks:
-    - name: Install the AWS CLI tool
+    - name: Install git and the AWS CLI tool
       ansible.builtin.package:
         name:
           - awscli
+          - git
   vars:
     # The username for the VNC user
     vnc_user: "{{ lookup('aws_ssm', '/vnc/username') }}"
