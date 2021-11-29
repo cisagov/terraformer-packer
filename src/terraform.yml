@@ -18,7 +18,7 @@
           - ansible
           - boto3
   tasks:
-    - name: Install git and the AWS CLI tool
+    - name: Install the AWS CLI tool and git
       ansible.builtin.package:
         name:
           - awscli
