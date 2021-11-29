@@ -6,9 +6,9 @@
   roles:
     - role: terraform
       vars:
-        # According to the RTA folks they are on 0.14.  This is the
-        # most recent 0.14 version.
-        terraform_version: 0.14.11
+        # According to the RTA folks they are on the most recent
+        # version of Terraform.
+        terraform_version: 1.0.11
     - role: assessment_tool
       vars:
         group: "{{ vnc_user }}"
@@ -18,10 +18,11 @@
           - ansible
           - boto3
   tasks:
-    - name: Install the AWS CLI tool
+    - name: Install the AWS CLI tool and git
       ansible.builtin.package:
         name:
           - awscli
+          - git
   vars:
     # The username for the VNC user
     vnc_user: "{{ lookup('aws_ssm', '/vnc/username') }}"
