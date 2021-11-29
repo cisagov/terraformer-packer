@@ -104,7 +104,7 @@
             owner: "{{ username }}"
             path: /home/vnc/.config/xfce4/terminal/terminalrc
             section: Configuration
-            value: true
+            value: "TRUE"
         - name: Turn off scrolling on output
           community.general.ini_file:
             group: "{{ username }}"
@@ -114,7 +114,7 @@
             owner: "{{ username }}"
             path: /home/vnc/.config/xfce4/terminal/terminalrc
             section: Configuration
-            value: false
+            value: "FALSE"
 
   vars:
     # The username for the VNC user
