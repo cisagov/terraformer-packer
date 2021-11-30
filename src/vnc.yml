@@ -93,6 +93,29 @@
             mode: 0644
             owner: "{{ username }}"
             path: /home/{{ username }}/.bashrc
+    - name: Configure xfce4-terminal
+      block:
+        - name: Turn on infinite scrollback
+          community.general.ini_file:
+            group: "{{ username }}"
+            mode: 0600
+            no_extra_spaces: yes
+            option: ScrollingUnlimited
+            owner: "{{ username }}"
+            path: /home/vnc/.config/xfce4/terminal/terminalrc
+            section: Configuration
+            value: "TRUE"
+        - name: Turn off scrolling on output
+          community.general.ini_file:
+            group: "{{ username }}"
+            mode: 0600
+            no_extra_spaces: yes
+            option: ScrollingOnOutput
+            owner: "{{ username }}"
+            path: /home/vnc/.config/xfce4/terminal/terminalrc
+            section: Configuration
+            value: "FALSE"
+
   vars:
     # The username for the VNC user
     username: "{{ lookup('aws_ssm', '/vnc/username') }}"
