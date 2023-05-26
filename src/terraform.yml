@@ -3,13 +3,17 @@
   name: Install Terraform, Ansible, and related tools
   become: yes
   become_method: sudo
-  roles:
-    - role: terraform
+  tasks:
+    - name: Install Terraform
+      ansible.builtin.include_role:
+        name: terraform
       vars:
         # According to the RTA folks they are on the most recent
         # version of Terraform.
         terraform_version: 1.0.11
-    - role: assessment_tool
+    - name: Set up Python virtualenv with Ansible and Boto3
+      ansible.builtin.include_role:
+        name: assessment_tool
       vars:
         group: "{{ vnc_user }}"
         install_dir: /home/{{ vnc_user }}/
@@ -17,7 +21,6 @@
         pip_packages:
           - ansible
           - boto3
-  tasks:
     - name: Install the AWS CLI tool and git
       ansible.builtin.package:
         name:

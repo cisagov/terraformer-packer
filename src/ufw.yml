@@ -1,20 +1,16 @@
 ---
 - hosts: all
-  name: Install UFW
-  become: yes
-  become_method: sudo
-  roles:
-    - ufw
-  vars:
-    # Do not actually enforce firewall rules.  The assessors will turn
-    # UFW on if they want it.
-    state: disabled
-
-- hosts: all
-  name: Basic configuration for UFW
+  name: Install and configure UFW
   become: yes
   become_method: sudo
   tasks:
+    - name: Install UFW
+      ansible.builtin.include_role:
+        name: ufw
+      vars:
+        # Do not actually enforce firewall rules.  The assessors will
+        # turn UFW on if they want it.
+        state: disabled
     - name: Configure incoming traffic
       block:
         - name: Allow incoming traffic through default TCP ports
