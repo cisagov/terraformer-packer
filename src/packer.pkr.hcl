@@ -118,7 +118,7 @@ build {
   }
 
   provisioner "ansible" {
-    ansible_env_vars = ["ANSIBLE_PRIVATE_ROLE_VARS=True", "AWS_DEFAULT_REGION=${var.build_region}"]
+    ansible_env_vars = ["AWS_DEFAULT_REGION=${var.build_region}"]
     playbook_file    = "src/playbook.yml"
     use_proxy        = false
     use_sftp         = true
