@@ -2,7 +2,7 @@
 - hosts: all
   name: Install Terraform, Ansible, and related tools
   become: yes
-  become_method: sudo
+  become_method: ansible.builtin.sudo
   tasks:
     - name: Install Terraform
       ansible.builtin.include_role:
@@ -15,10 +15,10 @@
       ansible.builtin.include_role:
         name: assessment_tool
       vars:
-        group: "{{ vnc_user }}"
-        install_dir: /home/{{ vnc_user }}/
-        owner: "{{ vnc_user }}"
-        pip_packages:
+        assessment_tool_group: "{{ vnc_user }}"
+        assessment_tool_install_dir: /home/{{ vnc_user }}/
+        assessment_tool_owner: "{{ vnc_user }}"
+        assessment_tool_pip_packages:
           - ansible
           - boto3
     - name: Install the AWS CLI tool and git
