@@ -10,7 +10,7 @@
       vars:
         # Do not actually enforce firewall rules.  The assessors will
         # turn UFW on if they want it.
-        state: disabled
+        ufw_state: disabled
     - name: Configure incoming traffic
       block:
         - name: Allow incoming traffic through default TCP ports
