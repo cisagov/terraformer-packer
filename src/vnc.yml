@@ -37,26 +37,26 @@
             append: yes
             groups:
               - wheel
-            name: "{{ username }}"
+            name: "{{ vnc_username }}"
     - name: Configure xfce4-terminal
       block:
         - name: Turn on infinite scrollback
           community.general.ini_file:
-            group: "{{ username }}"
+            group: "{{ vnc_username }}"
             mode: 0600
             no_extra_spaces: yes
             option: ScrollingUnlimited
-            owner: "{{ username }}"
+            owner: "{{ vnc_username }}"
             path: /home/vnc/.config/xfce4/terminal/terminalrc
             section: Configuration
             value: "TRUE"
         - name: Turn off scrolling on output
           community.general.ini_file:
-            group: "{{ username }}"
+            group: "{{ vnc_username }}"
             mode: 0600
             no_extra_spaces: yes
             option: ScrollingOnOutput
-            owner: "{{ username }}"
+            owner: "{{ vnc_username }}"
             path: /home/vnc/.config/xfce4/terminal/terminalrc
             section: Configuration
             value: "FALSE"
