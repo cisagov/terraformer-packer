@@ -1,7 +1,7 @@
 ---
 - hosts: all
   name: Install VNC and configure VNC user
-  become: yes
+  become: true
   become_method: ansible.builtin.sudo
   tasks:
     - name: Install VNC
@@ -36,7 +36,7 @@
             mode: 0444
         - name: Add VNC user to wheel group
           ansible.builtin.user:
-            append: yes
+            append: true
             groups:
               - wheel
             name: "{{ vnc_server_username }}"
@@ -46,7 +46,7 @@
           community.general.ini_file:
             group: "{{ vnc_server_username }}"
             mode: 0600
-            no_extra_spaces: yes
+            no_extra_spaces: true
             option: ScrollingUnlimited
             owner: "{{ vnc_server_username }}"
             path: /home/vnc/.config/xfce4/terminal/terminalrc
@@ -56,7 +56,7 @@
           community.general.ini_file:
             group: "{{ vnc_server_username }}"
             mode: 0600
-            no_extra_spaces: yes
+            no_extra_spaces: true
             option: ScrollingOnOutput
             owner: "{{ vnc_server_username }}"
             path: /home/vnc/.config/xfce4/terminal/terminalrc
