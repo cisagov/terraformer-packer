@@ -1,6 +1,6 @@
 ---
-- hosts: all
-  name: Install Terraform, Ansible, and related tools
+- name: Install Terraform, Ansible, and related tools
+  hosts: all
   become: true
   become_method: ansible.builtin.sudo
   tasks:
