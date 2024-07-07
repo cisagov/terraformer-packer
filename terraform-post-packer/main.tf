@@ -31,14 +31,14 @@ data "aws_ami_ids" "historical_amis" {
   filter {
     name = "architecture"
     values = [
-      "x86_64",
+      "arm64",
     ]
   }
 
   filter {
     name = "name"
     values = [
-      "terraformer-hvm-*-x86_64-ebs",
+      "terraformer-hvm-*-arm64-ebs",
     ]
   }
 
