@@ -34,7 +34,6 @@ roles:
     src: https://github.com/cisagov/ansible-role-systemd-resolved
   - name: terraform
     src: https://github.com/cisagov/ansible-role-terraform
-    version: bugfix/install-correct-architecture
   - name: ufw
     src: https://github.com/cisagov/ansible-role-ufw
   - name: upgrade
