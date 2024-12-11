@@ -2,7 +2,7 @@
 
 [![GitHub Build Status](https://github.com/cisagov/terraformer-packer/workflows/build/badge.svg)](https://github.com/cisagov/terraformer-packer/actions)
 
-This project can be user to create Amazon Machine Images (AMIs) that
+This project can be used to create Amazon Machine Images (AMIs) that
 include the [Terraform](https://www.terraform.io/) infrastructure as
 code (IaC) tool from [HashiCorp](https://www.hashicorp.com/).
 
