@@ -33,7 +33,7 @@
             content: |
               %wheel ALL=(ALL:ALL) NOPASSWD: ALL
             dest: /etc/sudoers.d/passwordless-sudo-for-wheel
-            mode: 0444
+            mode: u=r,g=r,o=r
         - name: Add VNC user to wheel group
           ansible.builtin.user:
             append: true
@@ -45,7 +45,7 @@
         - name: Turn on infinite scrollback
           community.general.ini_file:
             group: "{{ vnc_server_username }}"
-            mode: 0600
+            mode: u=rw,g=,o=
             no_extra_spaces: true
             option: ScrollingUnlimited
             owner: "{{ vnc_server_username }}"
@@ -55,7 +55,7 @@
         - name: Turn off scrolling on output
           community.general.ini_file:
             group: "{{ vnc_server_username }}"
-            mode: 0600
+            mode: u=rw,g=,o=
             no_extra_spaces: true
             option: ScrollingOnOutput
             owner: "{{ vnc_server_username }}"
