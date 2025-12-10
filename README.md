@@ -1,6 +1,8 @@
 # terraformer-packer 💀📦 #
 
 [![GitHub Build Status](https://github.com/cisagov/terraformer-packer/workflows/build/badge.svg)](https://github.com/cisagov/terraformer-packer/actions)
+[![License](https://img.shields.io/github/license/cisagov/terraformer-packer)](https://spdx.org/licenses/)
+[![CodeQL](https://github.com/cisagov/terraformer-packer/workflows/CodeQL/badge.svg)](https://github.com/cisagov/terraformer-packer/actions/workflows/codeql-analysis.yml)
 
 This project can be user to create Amazon Machine Images (AMIs) that
 include:
