@@ -5,16 +5,26 @@
 # either (or both) can be an empty list, e.g., collections: [].
 collections:
   # Required by the following playbooks:
+  # - ansible/vnc.yml (uses amazon.aws.ssm_parameter)
   # - ansible/wazuh_agent.yml (uses amazon.aws.ssm_parameter)
+  # - ansible/xfce.yml (uses amazon.awsmssm_parameter)
   - amazon.aws
   # Required by the following Ansible roles:
   # - ansible-role-amazon-efs-utils (uses community.general.json_query
   #   and community.general.make)
   # - ansible-role-amazon-ssm-agent (uses community.general.snap)
+  # - ansible-role-assessment-tool (uses community.general.cargo)
   # - ansible-role-automated-security-updates (uses community.general.ini_file)
   # - ansible-role-cloudwatch-agent (uses community.general.ini_file)
   # - ansible-role-persist-journald (uses community.general.ini_file)
   # - ansible-role-systemd-resolved (uses community.general.ini_file)
+  # - ansible-role-ufw (uses community.general.ufw)
+  # - ansible-role-xfce-cool (uses community.general.xml and
+  #   community.general.sudosu)
+  #
+  # Also required by the following playbooks:
+  # - ansible/ufw.yml (uses community.general.ufw)
+  # - ansible/vnc/yml (uses community.general.ini_file)
   - community.general
 roles:
   - name: amazon_efs_utils
